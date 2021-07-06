@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Epam.Library.BLL;
 using Epam.Library.Entities;
 
 namespace Epam.Library.AspNetPL
@@ -22,8 +23,8 @@ namespace Epam.Library.AspNetPL
 
         protected void SignUp_Click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 UserEntity user = new UserEntity();
                 user.Password = Password.Text;
                 user.UserType = UserType.Text;
@@ -31,17 +32,31 @@ namespace Epam.Library.AspNetPL
                 user.Name = Name.Text;
                 user.Patronymic = Patronymic.Text;
                 user.Gender = Gender.Text;
-                user.DateOfBirth = Calendar1.SelectedDate.ToLongDateString();
-            }
-            catch (Exception x)
-            {
-                //MessageBox.Show("" + x.ToString());
-            }
+                user.DateOfBirth = Calendar.Text;
+
+                LibraryLogic bll = new LibraryLogic();
+                bll.AddUser(user);
+
+                GridView1.DataSource = bll.GetUsers();
+                GridView1.DataBind();
+                Button1.Visible = true;
+            //}
+
+            //catch (Exception x)
+            //{
+               // Console.WriteLine(x.Message);
+            //}
         }
+
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WebForm2.aspx");
         }
     }
 }

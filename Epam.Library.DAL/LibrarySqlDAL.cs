@@ -24,6 +24,9 @@ namespace Epam.Library.SqlDAL
                 con.Open();
                 Console.WriteLine("Подключение открыто");
 
+                /* 
+                //Переделать в дальнейшем на процедуры 
+
                 SqlCommand com1 = new SqlCommand("ДобавлениеПользователя", con);
                 com1.CommandType = CommandType.StoredProcedure;
                 com1.Parameters.AddWithValue("@password", user.Password);
@@ -32,7 +35,11 @@ namespace Epam.Library.SqlDAL
                 com1.Parameters.AddWithValue("@name", user.Name);
                 com1.Parameters.AddWithValue("@patronymic", user.Patronymic);
                 com1.Parameters.AddWithValue("@gender", user.Gender);
-                com1.Parameters.AddWithValue("@dateOfBirth", user.DateOfBirth);
+                com1.Parameters.AddWithValue("@dateOfBirth", user.DateOfBirth);*/
+
+                SqlDataAdapter adap = new SqlDataAdapter("Insert into Пользователь(пароль,тип_пользователя,фамилия,имя,отчество,пол,дата_рождения) values('" + user.Password + "','" + user.UserType + "','" + user.Surname + "','" + user.Name + "','" + user.Patronymic + "','" + user.Gender + "','" + user.DateOfBirth +"')", con);
+                DataTable dt = new DataTable();
+                adap.Fill(dt);
             }
             catch (SqlException ex)
             {
@@ -43,7 +50,7 @@ namespace Epam.Library.SqlDAL
                 con.Close();
                 Console.WriteLine("Подключение закрыто");
             }
-            Console.Read();
+            //Console.Read();
             return true;
         }
         //Получение пользователя (доработать)
@@ -51,6 +58,15 @@ namespace Epam.Library.SqlDAL
         {
             return new UserEntity();
         }
+        //Вывод списка всех пользователей
+        public object GetUsersDAL()
+        {
+            SqlDataAdapter adap = new SqlDataAdapter("Select * from Пользователь", con);
+            DataTable dt = new DataTable();
+            adap.Fill(dt);
+            return dt;
+        }
+
         //(доработать)
         public void EditUserDAL(string password, string type, string surname, string name, string patronymic, string gender, string dateOfBirth)
         {
@@ -64,7 +80,23 @@ namespace Epam.Library.SqlDAL
         //(доработать)
         public void RemoveBookDAL(int id) { }
         //(доработать)
-        public BookEntity GetBookDAL(string title) { return new BookEntity(); }
+        public BookEntity GetBookDAL(string title) 
+        {
+            return new BookEntity();
+            /*using (con))
+            {
+                con.Open();
+                SqlCommand command = new SqlCommand("ЧтениеКниг", con);
+                // указываем, что команда представляет хранимую процедуру
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlParameter nameParam = new SqlParameter
+                {
+                    ParameterName = "@title",
+                    Value = 
+                };
+                // добавляем параметр
+                command.Parameters.Add(nameParam);*/
+        }
 
     }
 }

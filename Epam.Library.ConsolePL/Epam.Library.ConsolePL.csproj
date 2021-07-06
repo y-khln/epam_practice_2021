@@ -50,6 +50,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Epam.Library.AspNetPL\Epam.Library.AspNetPL.csproj">
+      <Project>{bc28335f-e097-46a4-84c9-590793147d47}</Project>
+      <Name>Epam.Library.AspNetPL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Epam.Library.BLL.Interfaces\Epam.Library.BLL.Interfaces.csproj">
+      <Project>{45110530-2497-487d-98e8-aa2fa9821ba8}</Project>
+      <Name>Epam.Library.BLL.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Epam.Library.BLL\Epam.Library.BLL.csproj">
       <Project>{4d708bc5-b499-474b-9fd2-db5a6e1acaa9}</Project>
       <Name>Epam.Library.BLL</Name>

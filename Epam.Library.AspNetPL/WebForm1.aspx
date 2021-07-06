@@ -15,7 +15,7 @@
 &nbsp;&nbsp;
             <asp:TextBox ID="LoginIn" runat="server" Height="18px" style="margin-left: 48px" Width="184px"></asp:TextBox>
             <br />
-            <asp:Label ID="Label10" runat="server" Text="Пароль" Visible="False"></asp:Label>
+            <asp:Label ID="Label11" runat="server" Text="Пароль"></asp:Label>
 &nbsp;&nbsp;
             <asp:TextBox ID="PasswordIn" runat="server" Height="18px" style="margin-left: 72px" Width="184px"></asp:TextBox>
             <br />
@@ -27,12 +27,9 @@
             Для использования всех функций библиотеки вам необходимо пройти регистрацию<br />
             <br />
             <asp:Label ID="Label1" runat="server" Text="Логином является присвоенный вам id"></asp:Label>
-            :&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="UserID" runat="server"></asp:Label>
             <br />
-            <asp:Label ID="Label2" runat="server" Text="Пароль" Visible="False"></asp:Label>
-&nbsp;&nbsp;
-            <asp:TextBox ID="Password" runat="server" Height="18px" style="margin-left: 72px" Width="184px"></asp:TextBox>
+            <asp:Label ID="Label10" runat="server" Text="Пароль"></asp:Label>
+            <asp:TextBox ID="Password" runat="server" Height="18px" style="margin-left: 85px" Width="184px"></asp:TextBox>
             <br />
             <asp:Label ID="Label3" runat="server" Text="Тип пользователя"></asp:Label>
 &nbsp;&nbsp;
@@ -54,18 +51,28 @@
             <asp:TextBox ID="Patronymic" runat="server" Height="18px" style="margin-left: 58px" Width="185px"></asp:TextBox>
             <br />
             <asp:Label ID="Label8" runat="server" Text="Пол"></asp:Label>
-&nbsp;&nbsp;
-            <asp:DropDownList ID="Gender" runat="server" Height="24px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" style="margin-left: 95px" Width="134px">
+&nbsp;&nbsp;&nbsp;
+            <asp:DropDownList ID="Gender" runat="server" Height="24px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" style="margin-left: 91px" Width="134px">
                 <asp:ListItem Selected="True">м</asp:ListItem>
                 <asp:ListItem>ж</asp:ListItem>
             </asp:DropDownList>
             <br />
-            <br />
             <asp:Label ID="Label7" runat="server" Text="Дата рождения"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Calendar ID="Calendar1" runat="server" Height="175px" style="margin-left: 136px; margin-right: 0px; margin-top: 0px" Width="192px"></asp:Calendar>
-&nbsp;<br />
+            &nbsp;<asp:TextBox ID="Calendar" runat="server"></asp:TextBox>
+            <br />
+            <br />
             <asp:Button ID="SignUp" runat="server" OnClick="SignUp_Click" style="margin-left: 0px" Text="Зарегистрироваться" />
+            <br />
+            <br />
+            <asp:Label ID="Label12" runat="server" Text="Убедиться в успешности регистрации вы сможете ниже"></asp:Label>
+            <br />
+            <asp:GridView ID="GridView1" runat="server">
+            </asp:GridView>
+            <br />
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Перейти в библиотеку" Visible="False" />
+            <br />
+            <br />
         </div>
     </form>
 </body>

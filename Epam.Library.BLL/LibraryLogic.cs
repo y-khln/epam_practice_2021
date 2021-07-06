@@ -6,25 +6,19 @@ using System.Threading.Tasks;
 using Epam.Library.BLL.Interfaces;
 using Epam.Library.DAL.Interfaces;
 using Epam.Library.Entities;
+using Epam.Library.SqlDAL;
 
 namespace Epam.Library.BLL
 {
     public class LibraryLogic : ILibraryLogic
     {
-        private ILibraryDAL _libraryDAL;
-
-        public LibraryLogic(ILibraryDAL libraryDAL)
-        {
-            _libraryDAL = libraryDAL;
-        }
-        //(доработать)
-        public LibraryLogic()
-        {
-        }
+        LibrarySqlDAL _libraryDAL = new LibrarySqlDAL();
 
         //Пользователи
         public bool AddUser(UserEntity user) => _libraryDAL.AddUserDAL(user);
         public UserEntity GetUser(int id) => _libraryDAL.GetUserDAL(id);
+        public object GetUsers() => _libraryDAL.GetUsersDAL();
+
         public void EditUser(string password, string type, string surname, string name, string patronymic, string gender, string dateOfBirth)
         => _libraryDAL.EditUserDAL(password, type, surname, name, patronymic, gender, dateOfBirth);
 
