@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Epam.Library.BLL.Interfaces;
-using Epam.Library.DAL.Interfaces;
 using Epam.Library.Entities;
 using Epam.Library.SqlDAL;
 
@@ -14,25 +9,30 @@ namespace Epam.Library.BLL
     {
         LibrarySqlDAL _libraryDAL = new LibrarySqlDAL();
 
-        //Пользователи
+        //ПОЛЬЗОВАТЕЛИ
+        //Добавить пользователя
         public bool AddUser(UserEntity user) => _libraryDAL.AddUserDAL(user);
-        public UserEntity GetUser(int id) => _libraryDAL.GetUserDAL(id);
+        //Профиль пользователя по id
+        public object GetUser(int id) => _libraryDAL.GetUserDAL(id);
+        //Список всех пользователей
         public object GetUsers() => _libraryDAL.GetUsersDAL();
+        //Редактирование профиля пользователя
+        public void EditUser(int id, string password, string type, string surname, string name, string patronymic, string gender, string birth, int books, int arrears)
+        => _libraryDAL.EditUserDAL(id, password, type, surname, name, patronymic, gender, birth,books,arrears);
 
-        public void EditUser(string password, string type, string surname, string name, string patronymic, string gender, string dateOfBirth)
-        => _libraryDAL.EditUserDAL(password, type, surname, name, patronymic, gender, dateOfBirth);
-
-        //Книги
+        //КНИГИ
+        //Добавить книгу в библиотеку
         public bool AddBook(BookEntity book) => _libraryDAL.AddBookDAL(book);
+        //Получить все книги
+        public object GetBooks() => _libraryDAL.GetBooksDAL();
+        //Получить книгу по указанному id
+        public object GetBookID(int id) => _libraryDAL.GetBookIDDAL(id);
+        //Получить книги по названию
+        public object GetBookTitle(string title) => _libraryDAL.GetBookTitleDAL(title);
+        //Удалить книгу по указанному id
         public void RemoveBook(int id) => _libraryDAL.RemoveBookDAL(id);
-        //(доработать)
-        //void EditBook()
-        public BookEntity GetBook(string title) => _libraryDAL.GetBookDAL(title);
-        //(доработать)
-        /*IEnumerable<BookEntity> GetBooks(bool oreredById = true)
-        {
-            
-        }*/
-
+        //Изменить книгу с указанным id
+        public void EditBook(int id, string title, string author, string edition, string editionYear, string place) 
+        => _libraryDAL.EditBookDAL(id,title, author, edition, editionYear, place);
     }
 }

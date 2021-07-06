@@ -49,10 +49,6 @@
       <Project>{45110530-2497-487d-98e8-aa2fa9821ba8}</Project>
       <Name>Epam.Library.BLL.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Epam.Library.DAL.Interfaces\Epam.Library.DAL.Interfaces.csproj">
-      <Project>{5a5486c4-9ff7-4712-af79-514c23d7ac17}</Project>
-      <Name>Epam.Library.DAL.Interfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Epam.Library.DAL\Epam.Library.SqlDAL.csproj">
       <Project>{595e651b-ec5b-4113-b203-8ea146b1389f}</Project>
       <Name>Epam.Library.SqlDAL</Name>

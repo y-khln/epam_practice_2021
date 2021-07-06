@@ -33,31 +33,31 @@ namespace Epam.Library.AspNetPL
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// Label2 элемент управления.
+        /// UserButton элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Button UserButton;
 
         /// <summary>
-        /// Label3 элемент управления.
+        /// ChangeProfileButton элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Button ChangeProfileButton;
 
         /// <summary>
-        /// Button1 элемент управления.
+        /// UserProfile элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.GridView UserProfile;
 
         /// <summary>
         /// Label24 элемент управления.
@@ -78,22 +78,67 @@ namespace Epam.Library.AspNetPL
         protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// Button2 элемент управления.
+        /// ReadingBooksBut элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button ReadingBooksBut;
 
         /// <summary>
-        /// GridView1 элемент управления.
+        /// AllBooks элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView AllBooks;
+
+        /// <summary>
+        /// Label25 элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label25;
+
+        /// <summary>
+        /// Label26 элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label26;
+
+        /// <summary>
+        /// FindingBook элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox FindingBook;
+
+        /// <summary>
+        /// FindingBookBut элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button FindingBookBut;
+
+        /// <summary>
+        /// ChosenBooks элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView ChosenBooks;
 
         /// <summary>
         /// Label5 элемент управления.
@@ -195,13 +240,31 @@ namespace Epam.Library.AspNetPL
         protected global::System.Web.UI.WebControls.TextBox Place;
 
         /// <summary>
-        /// Button3 элемент управления.
+        /// AddingBookBut элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.Button AddingBookBut;
+
+        /// <summary>
+        /// SuccessAdd элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label SuccessAdd;
+
+        /// <summary>
+        /// NewBooks элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView NewBooks;
 
         /// <summary>
         /// Label15 элемент управления.
@@ -231,13 +294,31 @@ namespace Epam.Library.AspNetPL
         protected global::System.Web.UI.WebControls.TextBox BookID;
 
         /// <summary>
-        /// Button4 элемент управления.
+        /// DeletingBookBut элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button4;
+        protected global::System.Web.UI.WebControls.Button DeletingBookBut;
+
+        /// <summary>
+        /// DeletedText элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label DeletedText;
+
+        /// <summary>
+        /// Deleted элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView Deleted;
 
         /// <summary>
         /// Label17 элемент управления.
@@ -258,13 +339,13 @@ namespace Epam.Library.AspNetPL
         protected global::System.Web.UI.WebControls.Label Label23;
 
         /// <summary>
-        /// Title1 элемент управления.
+        /// UpdateId элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Title1;
+        protected global::System.Web.UI.WebControls.TextBox UpdateId;
 
         /// <summary>
         /// Label18 элемент управления.
@@ -276,13 +357,13 @@ namespace Epam.Library.AspNetPL
         protected global::System.Web.UI.WebControls.Label Label18;
 
         /// <summary>
-        /// Title0 элемент управления.
+        /// UpdateTitle элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Title0;
+        protected global::System.Web.UI.WebControls.TextBox UpdateTitle;
 
         /// <summary>
         /// Label19 элемент управления.
@@ -294,13 +375,13 @@ namespace Epam.Library.AspNetPL
         protected global::System.Web.UI.WebControls.Label Label19;
 
         /// <summary>
-        /// Author0 элемент управления.
+        /// UpdateAuthor элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Author0;
+        protected global::System.Web.UI.WebControls.TextBox UpdateAuthor;
 
         /// <summary>
         /// Label20 элемент управления.
@@ -312,13 +393,13 @@ namespace Epam.Library.AspNetPL
         protected global::System.Web.UI.WebControls.Label Label20;
 
         /// <summary>
-        /// EditionYear0 элемент управления.
+        /// UpdateEditionYear элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox EditionYear0;
+        protected global::System.Web.UI.WebControls.TextBox UpdateEditionYear;
 
         /// <summary>
         /// Label21 элемент управления.
@@ -330,13 +411,13 @@ namespace Epam.Library.AspNetPL
         protected global::System.Web.UI.WebControls.Label Label21;
 
         /// <summary>
-        /// Edition0 элемент управления.
+        /// UpdateEdition элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Edition0;
+        protected global::System.Web.UI.WebControls.TextBox UpdateEdition;
 
         /// <summary>
         /// Label22 элемент управления.
@@ -348,21 +429,48 @@ namespace Epam.Library.AspNetPL
         protected global::System.Web.UI.WebControls.Label Label22;
 
         /// <summary>
-        /// Place0 элемент управления.
+        /// UpdatePlace элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Place0;
+        protected global::System.Web.UI.WebControls.TextBox UpdatePlace;
 
         /// <summary>
-        /// Button5 элемент управления.
+        /// ChangeBookBut элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button5;
+        protected global::System.Web.UI.WebControls.Button ChangeBookBut;
+
+        /// <summary>
+        /// SuccessfulUpdate элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label SuccessfulUpdate;
+
+        /// <summary>
+        /// ChangedBook элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView ChangedBook;
+
+        /// <summary>
+        /// ChangedAll элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView ChangedAll;
     }
 }

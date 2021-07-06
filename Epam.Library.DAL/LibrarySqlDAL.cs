@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using Epam.Library.Entities;
@@ -14,89 +10,139 @@ namespace Epam.Library.SqlDAL
     {
         static string conString = @"Data Source=HOME-PC;Initial Catalog=Библиотека;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         SqlConnection con = new SqlConnection(conString);
-
-        //Добавление пользователя (регистрация)
+        //.
+        //ПОЛЬЗОВАТЕЛИ
+        //.
+        //Добавить пользователя (регистрация)
         public bool AddUserDAL(UserEntity user)
         {
-            try
-            {
-                // Создание подключения
-                con.Open();
-                Console.WriteLine("Подключение открыто");
-
-                /* 
-                //Переделать в дальнейшем на процедуры 
-
-                SqlCommand com1 = new SqlCommand("ДобавлениеПользователя", con);
-                com1.CommandType = CommandType.StoredProcedure;
-                com1.Parameters.AddWithValue("@password", user.Password);
-                com1.Parameters.AddWithValue("@type", user.UserType);
-                com1.Parameters.AddWithValue("@surname", user.Surname);
-                com1.Parameters.AddWithValue("@name", user.Name);
-                com1.Parameters.AddWithValue("@patronymic", user.Patronymic);
-                com1.Parameters.AddWithValue("@gender", user.Gender);
-                com1.Parameters.AddWithValue("@dateOfBirth", user.DateOfBirth);*/
-
-                SqlDataAdapter adap = new SqlDataAdapter("Insert into Пользователь(пароль,тип_пользователя,фамилия,имя,отчество,пол,дата_рождения) values('" + user.Password + "','" + user.UserType + "','" + user.Surname + "','" + user.Name + "','" + user.Patronymic + "','" + user.Gender + "','" + user.DateOfBirth +"')", con);
-                DataTable dt = new DataTable();
-                adap.Fill(dt);
-            }
-            catch (SqlException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                con.Close();
-                Console.WriteLine("Подключение закрыто");
-            }
-            //Console.Read();
+            SqlCommand com = new SqlCommand("ДобавлениеПользователя", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@password", user.Password);
+            com.Parameters.AddWithValue("@type", user.UserType);
+            com.Parameters.AddWithValue("@surname", user.Surname);
+            com.Parameters.AddWithValue("@name", user.Name);
+            com.Parameters.AddWithValue("@patronymic", user.Patronymic);
+            com.Parameters.AddWithValue("@gender", user.Gender);
+            com.Parameters.AddWithValue("@dateOfBirth", user.DateOfBirth);
+            SqlDataAdapter adap = new SqlDataAdapter(com);
+            //SqlDataAdapter adap = new SqlDataAdapter("Insert into Пользователь(пароль,тип_пользователя,фамилия,имя,отчество,пол,дата_рождения) values('" + user.Password + "','" + user.UserType + "','" + user.Surname + "','" + user.Name + "','" + user.Patronymic + "','" + user.Gender + "','" + user.DateOfBirth +"')", con);
+            DataTable dt = new DataTable();
+            adap.Fill(dt);
             return true;
         }
-        //Получение пользователя (доработать)
-        public UserEntity GetUserDAL(int id)
+        //Профиль пользователя по id
+        public object GetUserDAL(int id)
         {
-            return new UserEntity();
-        }
-        //Вывод списка всех пользователей
-        public object GetUsersDAL()
-        {
-            SqlDataAdapter adap = new SqlDataAdapter("Select * from Пользователь", con);
+            SqlCommand com = new SqlCommand("ИнфоПользователь", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@userid", id);
+            SqlDataAdapter adap = new SqlDataAdapter(com);
             DataTable dt = new DataTable();
             adap.Fill(dt);
             return dt;
         }
-
-        //(доработать)
-        public void EditUserDAL(string password, string type, string surname, string name, string patronymic, string gender, string dateOfBirth)
+        //Список всех пользователей
+        public object GetUsersDAL()
         {
-
+            SqlCommand com = new SqlCommand("ВсеПользователи", con);
+            com.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adap = new SqlDataAdapter(com);
+            DataTable dt = new DataTable();
+            adap.Fill(dt);
+            return dt;
         }
-        //(доработать)
+        //Редактирование профиля пользователя
+        public void EditUserDAL(int id, string password, string type, string surname, string name, string patronymic, string gender, string birth, int books, int arrears)
+        {
+            SqlCommand com = new SqlCommand("ДобавлениеПользователя", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@id", id);
+            com.Parameters.AddWithValue("@password", password);
+            com.Parameters.AddWithValue("@type", type);
+            com.Parameters.AddWithValue("@surname", surname);
+            com.Parameters.AddWithValue("@name", name);
+            com.Parameters.AddWithValue("@patronymic", patronymic);
+            com.Parameters.AddWithValue("@gender", gender);
+            com.Parameters.AddWithValue("@birth", birth);
+            com.Parameters.AddWithValue("@books", books);
+            com.Parameters.AddWithValue("@arrears", arrears);
+            SqlDataAdapter adap = new SqlDataAdapter(com);
+        }
+        //.
+        //КНИГИ
+        //.
+        //Добавить книгу в библиотеку
         public bool AddBookDAL(BookEntity book)
         {
+            SqlCommand com = new SqlCommand("ДобавлениеКниги", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@title", book.Title);
+            com.Parameters.AddWithValue("@author", book.Author);
+            com.Parameters.AddWithValue("@edition", book.Edition);
+            com.Parameters.AddWithValue("@editionYear", book.EditionYear);
+            com.Parameters.AddWithValue("@place", book.Place);
+            SqlDataAdapter adap = new SqlDataAdapter(com);
+            DataTable dt = new DataTable();
+            adap.Fill(dt);
             return true;
         }
-        //(доработать)
-        public void RemoveBookDAL(int id) { }
-        //(доработать)
-        public BookEntity GetBookDAL(string title) 
+        //Получить все книги
+        public object GetBooksDAL()
         {
-            return new BookEntity();
-            /*using (con))
-            {
-                con.Open();
-                SqlCommand command = new SqlCommand("ЧтениеКниг", con);
-                // указываем, что команда представляет хранимую процедуру
-                command.CommandType = System.Data.CommandType.StoredProcedure;
-                SqlParameter nameParam = new SqlParameter
-                {
-                    ParameterName = "@title",
-                    Value = 
-                };
-                // добавляем параметр
-                command.Parameters.Add(nameParam);*/
+            SqlCommand com = new SqlCommand("ЧтениеКниг", con);
+            com.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adap = new SqlDataAdapter(com);
+            DataTable dt = new DataTable();
+            adap.Fill(dt);
+            return dt;
         }
-
+        //Получить книгу по указанному id
+        public object GetBookIDDAL(int id)
+        {
+            SqlCommand com = new SqlCommand("ПоискКнигиПоID", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@id", id);
+            SqlDataAdapter adap = new SqlDataAdapter(com);
+            DataTable dt = new DataTable();
+            adap.Fill(dt);
+            return dt;
+        }
+        //Получить книги по названию
+        public object GetBookTitleDAL(string title)
+        {
+            SqlCommand com = new SqlCommand("ПоискКнигПоНазванию", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@title", title);
+            SqlDataAdapter adap = new SqlDataAdapter(com);
+            DataTable dt = new DataTable();
+            adap.Fill(dt);
+            return dt;
+        }
+        //Удалить книгу по указанному id (доработать)
+        public void RemoveBookDAL(int id) 
+        {
+            SqlCommand com = new SqlCommand("УдалитьКнигуID", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@id", id);
+            SqlDataAdapter adap = new SqlDataAdapter(com);
+            DataTable dt = new DataTable();
+            adap.Fill(dt);
+        }
+        //Изменение в книге указанных пользователем полей
+        public void EditBookDAL(int id, string title, string author, string edition, string editionYear, string place)
+        {
+            SqlCommand com = new SqlCommand("ИзменениеКниги", con);
+            com.Parameters.AddWithValue("@id", id);
+            com.Parameters.AddWithValue("@title", title);
+            com.Parameters.AddWithValue("@author", author);
+            com.Parameters.AddWithValue("@edition", edition);
+            com.Parameters.AddWithValue("@editionYear", editionYear);
+            com.Parameters.AddWithValue("@place", place);
+            com.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adap = new SqlDataAdapter(com);
+            DataTable dt = new DataTable();
+            adap.Fill(dt);
+        }
     }
 }

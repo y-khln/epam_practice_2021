@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using Epam.Library.BLL;
 using Epam.Library.Entities;
 
@@ -15,16 +10,12 @@ namespace Epam.Library.AspNetPL
         {
 
         }
-
         protected void SignIn_Click(object sender, EventArgs e)
         {
 
         }
-
         protected void SignUp_Click(object sender, EventArgs e)
         {
-            //try
-            //{
                 UserEntity user = new UserEntity();
                 user.Password = Password.Text;
                 user.UserType = UserType.Text;
@@ -40,15 +31,7 @@ namespace Epam.Library.AspNetPL
                 GridView1.DataSource = bll.GetUsers();
                 GridView1.DataBind();
                 Button1.Visible = true;
-            //}
-
-            //catch (Exception x)
-            //{
-               // Console.WriteLine(x.Message);
-            //}
         }
-
-
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
 

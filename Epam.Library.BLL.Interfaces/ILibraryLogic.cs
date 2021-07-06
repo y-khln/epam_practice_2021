@@ -1,28 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Epam.Library.Entities;
 
 namespace Epam.Library.BLL.Interfaces
 {
     public interface ILibraryLogic
     {
-        //Пользователи
         bool AddUser(UserEntity user);
-        UserEntity GetUser(int id);
-        void EditUser(string password, string type, string surname, string name, string patronymic, string gender, string dateOfBirth);
+        object GetUser(int id);
+        object GetUsers();
+        void EditUser(int id, string password, string type, string surname, string name, string patronymic, string gender, string birth, int books, int arrears);
 
-        //Книги
         bool AddBook(BookEntity book);
+        object GetBooks();
+        object GetBookID(int id);
+        object GetBookTitle(string title);
         void RemoveBook(int id);
-        //(доработать)
-        //void EditBook();
-        BookEntity GetBook(string title);
-        //(доработать)
-        //IEnumerable<BookEntity> GetBooks(bool oreredById = true);
+        void EditBook(int id, string title, string author, string edition, string editionYear, string place);
     }
-
 }
 
