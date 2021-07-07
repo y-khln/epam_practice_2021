@@ -5,10 +5,13 @@ namespace Epam.Library.BLL.Interfaces
 {
     public interface ILibraryLogic
     {
+        bool Auth(int id, string password);
+
         bool AddUser(UserEntity user);
         object GetUser(int id);
+        object GetUserFull(int id);
         object GetUsers();
-        void EditUser(int id, string password, string type, string surname, string name, string patronymic, string gender, string birth, int books, int arrears);
+        void EditUser(int id, string password, string type, string surname, string name, string patronymic, string birth);
 
         bool AddBook(BookEntity book);
         object GetBooks();

@@ -9,16 +9,21 @@ namespace Epam.Library.BLL
     {
         LibrarySqlDAL _libraryDAL = new LibrarySqlDAL();
 
+        public bool Auth(int id, string password) => _libraryDAL.Authentification(id, password);
         //ПОЛЬЗОВАТЕЛИ
+        //Подсчет общего числа пользователей
+        public int Count() => _libraryDAL.CountDAL();
         //Добавить пользователя
         public bool AddUser(UserEntity user) => _libraryDAL.AddUserDAL(user);
-        //Профиль пользователя по id
+        //Профиль пользователя по id упрощенный
         public object GetUser(int id) => _libraryDAL.GetUserDAL(id);
+        //Профиль пользователя по id полный
+        public object GetUserFull(int id) => _libraryDAL.GetUserFullDAL(id);
         //Список всех пользователей
         public object GetUsers() => _libraryDAL.GetUsersDAL();
         //Редактирование профиля пользователя
-        public void EditUser(int id, string password, string type, string surname, string name, string patronymic, string gender, string birth, int books, int arrears)
-        => _libraryDAL.EditUserDAL(id, password, type, surname, name, patronymic, gender, birth,books,arrears);
+        public void EditUser(int id, string password, string type, string surname, string name, string patronymic, string birth)
+        => _libraryDAL.EditUserDAL(id, password, type, surname, name, patronymic, birth);
 
         //КНИГИ
         //Добавить книгу в библиотеку

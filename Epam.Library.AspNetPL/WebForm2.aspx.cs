@@ -4,17 +4,19 @@ using System;
 
 namespace Epam.Library.AspNetPL
 {
+    
     public partial class WebForm2 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            //Hello.Text = Convert.ToString(Cache["MyCache"]);
         }
 
         protected void UserButton_Click(object sender, EventArgs e)
         {
-
             LibraryLogic bll = new LibraryLogic();
+            //int id = bll.userId;
             UserProfile.DataSource = bll.GetUser(6);
             UserProfile.DataBind();
             UserProfile.Visible = true;
@@ -79,6 +81,11 @@ namespace Epam.Library.AspNetPL
             ChosenBooks.DataSource = bll.GetBookTitle(FindingBook.Text);
             ChosenBooks.DataBind();
             ChosenBooks.Visible = true;
+        }
+
+        protected void ChangeProfileButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WebForm3.aspx");
         }
     }
 }

@@ -33,6 +33,24 @@ namespace Epam.Library.AspNetPL
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
+        /// Label27 элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label27;
+
+        /// <summary>
+        /// Hello элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Hello;
+
+        /// <summary>
         /// UserButton элемент управления.
         /// </summary>
         /// <remarks>

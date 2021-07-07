@@ -13,9 +13,14 @@
             <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Библиотека"></asp:Label>
             <br />
             <br />
+            <asp:Label ID="Label27" runat="server" Text="Здравствуйте, пользователь: "></asp:Label>
+&nbsp;
+            <asp:Label ID="Hello" runat="server"></asp:Label>
+            <br />
+            <br />
             <asp:Button ID="UserButton" runat="server" OnClick="UserButton_Click" Text="Получить свой профиль" />
 &nbsp;&nbsp;
-            <asp:Button ID="ChangeProfileButton" runat="server" Text="Изменить профиль" />
+            <asp:Button ID="ChangeProfileButton" runat="server" Text="Изменить профиль" OnClick="ChangeProfileButton_Click" />
             <br />
             <br />
             <asp:GridView ID="UserProfile" runat="server" Visible="False">
@@ -139,6 +144,8 @@
             <br />
             <asp:GridView ID="ChangedAll" runat="server" Visible="False">
             </asp:GridView>
+            <br />
+            <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <br />
         </div>

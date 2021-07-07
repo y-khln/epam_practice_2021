@@ -5,10 +5,13 @@ namespace Epam.Library.DAL.Interfaces
 {
     public interface ILibraryDAL
     {
+        bool Authentification(int id, string password);
+
         bool AddUserDAL(UserEntity user);
         object GetUserDAL(int id);
+        object GetUserFullDAL(int id);
         object GetUsersDAL();
-        void EditUserDAL(int id, string password, string type, string surname, string name, string patronymic, string gender, string birth, int books, int arrears);
+        void EditUserDAL(int id, string password, string type, string surname, string name, string patronymic, string birth);
 
         bool AddBookDAL(BookEntity book);
         object GetBooksDAL();

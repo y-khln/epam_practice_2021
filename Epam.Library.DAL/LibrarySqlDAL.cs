@@ -10,9 +10,42 @@ namespace Epam.Library.SqlDAL
     {
         static string conString = @"Data Source=HOME-PC;Initial Catalog=Библиотека;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         SqlConnection con = new SqlConnection(conString);
+        //Аутентификация
+        public bool Authentification(int id, string password)
+        {
+            SqlCommand com = new SqlCommand("Аутентификация", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@id", id);
+            com.Parameters.AddWithValue("@password", password);
+            SqlDataAdapter adap = new SqlDataAdapter(com);
+            DataTable dt = new DataTable();
+            adap.Fill(dt);
+            int i = 0;
+            foreach (DataRow row in dt.Rows)
+            {
+                i++;
+            }
+            if (i == 0) return false;
+            else return true;
+        }
         //.
         //ПОЛЬЗОВАТЕЛИ
         //.
+        //Подсчет общего числа пользователей
+        public int CountDAL()
+        {
+            SqlCommand com = new SqlCommand("ВсеПользователи", con);
+            com.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter adap = new SqlDataAdapter(com);
+            DataTable dt = new DataTable();
+            adap.Fill(dt);
+            int i = 0;
+            foreach (DataRow row in dt.Rows)
+            {
+                i++;
+            }
+            return i;
+        }
         //Добавить пользователя (регистрация)
         public bool AddUserDAL(UserEntity user)
         {
@@ -31,10 +64,21 @@ namespace Epam.Library.SqlDAL
             adap.Fill(dt);
             return true;
         }
-        //Профиль пользователя по id
+        //Профиль пользователя по id упрощенный вариант
         public object GetUserDAL(int id)
         {
             SqlCommand com = new SqlCommand("ИнфоПользователь", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@userid", id);
+            SqlDataAdapter adap = new SqlDataAdapter(com);
+            DataTable dt = new DataTable();
+            adap.Fill(dt);
+            return dt;
+        }
+        //Профиль пользователя по id полный вариант
+        public object GetUserFullDAL(int id)
+        {
+            SqlCommand com = new SqlCommand("ИнфоПользователяДляИзменения", con);
             com.CommandType = CommandType.StoredProcedure;
             com.Parameters.AddWithValue("@userid", id);
             SqlDataAdapter adap = new SqlDataAdapter(com);
@@ -53,9 +97,9 @@ namespace Epam.Library.SqlDAL
             return dt;
         }
         //Редактирование профиля пользователя
-        public void EditUserDAL(int id, string password, string type, string surname, string name, string patronymic, string gender, string birth, int books, int arrears)
+        public void EditUserDAL(int id, string password, string type, string surname, string name, string patronymic, string birth)
         {
-            SqlCommand com = new SqlCommand("ДобавлениеПользователя", con);
+            SqlCommand com = new SqlCommand("ИзменениеДанныхПользователя", con);
             com.CommandType = CommandType.StoredProcedure;
             com.Parameters.AddWithValue("@id", id);
             com.Parameters.AddWithValue("@password", password);
@@ -63,11 +107,10 @@ namespace Epam.Library.SqlDAL
             com.Parameters.AddWithValue("@surname", surname);
             com.Parameters.AddWithValue("@name", name);
             com.Parameters.AddWithValue("@patronymic", patronymic);
-            com.Parameters.AddWithValue("@gender", gender);
             com.Parameters.AddWithValue("@birth", birth);
-            com.Parameters.AddWithValue("@books", books);
-            com.Parameters.AddWithValue("@arrears", arrears);
             SqlDataAdapter adap = new SqlDataAdapter(com);
+            DataTable dt = new DataTable();
+            adap.Fill(dt);
         }
         //.
         //КНИГИ
@@ -119,7 +162,7 @@ namespace Epam.Library.SqlDAL
             adap.Fill(dt);
             return dt;
         }
-        //Удалить книгу по указанному id (доработать)
+        //Удалить книгу по указанному id
         public void RemoveBookDAL(int id) 
         {
             SqlCommand com = new SqlCommand("УдалитьКнигуID", con);
